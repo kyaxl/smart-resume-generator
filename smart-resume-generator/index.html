@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Resume Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h1 class="mb-4 text-center">Smart Resume Generator</h1>
+    <div class="row">
+      <!-- Resume Form -->
+      <div class="col-md-6">
+        <form id="resumeForm">
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" id="fullName" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" id="phone" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="skills" class="form-label">Skills (comma separated)</label>
+            <input type="text" id="skills" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="experience" class="form-label">Experience</label>
+            <textarea id="experience" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="education" class="form-label">Education</label>
+            <textarea id="education" class="form-control"></textarea>
+          </div>
+        </form>
+
+        <!-- Template Switcher and PDF Button -->
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-outline-primary" onclick="switchTemplate('template1')">Classic</button>
+          <button class="btn btn-outline-success" onclick="switchTemplate('template2')">Modern</button>
+          <button class="btn btn-outline-dark" onclick="switchTemplate('template3')">Creative</button>
+          <button class="btn btn-primary ms-auto" onclick="downloadResume()">Download PDF</button>
+        </div>
+      </div>
+
+      <!-- Resume Preview -->
+      <div class="col-md-6">
+        <div id="resumePreview" class="resume-card template1 p-4">
+          <h2 id="previewName">Your Name</h2>
+          <p id="previewEmail">your.email@example.com</p>
+          <p id="previewPhone">123-456-7890</p>
+
+          <h4>Skills</h4>
+          <ul id="previewSkills"></ul>
+
+          <h4>Experience</h4>
+          <p id="previewExperience"></p>
+
+          <h4>Education</h4>
+          <p id="previewEducation"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
